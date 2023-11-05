@@ -1,6 +1,5 @@
 package com.vastika.doctorservice.controller;
 
-import com.vastika.doctorservice.model.Doctor;
 import com.vastika.doctorservice.model.DoctorDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -43,6 +42,13 @@ public class DoctorController {
        5XX  -> Server side error
 
      */
+//    @Autowired
+//    private DoctorService doctorService;
+
+
+    public DoctorController(){
+        log.info("Doctor controller object is created");
+    }
 
 
     @GetMapping
@@ -62,6 +68,7 @@ public class DoctorController {
     @PostMapping(value = "/doctor")
     public String createDoctor(@RequestBody DoctorDTO doctorDTO){
         log.info(doctorDTO.toString());
+//        doctorService.saveDoctor(doctorDTO);
         return "Doctor created successfully";
     }
 
